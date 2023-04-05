@@ -36,7 +36,7 @@
                   <h2><?php the_title() ?></h2>
                   <p> <?php echo get_the_excerpt();?>
                   </p>
-                  <a href="#">Read More...</a>
+                  <a href="<?php echo the_permalink()?>">Read More...</a>
                 </div>
               </article>
               <?php
@@ -69,7 +69,7 @@
                 <div class="card__sm__content">
                   <small><?php echo get_the_date('M-d-Y') ?></small>
                   <h3><?php the_title(); ?></h3>
-                  <a href="#">Read More...</a>
+                  <a href="<?php echo the_permalink()?>">Read More...</a>
                 </div>
               </div>
 
@@ -131,7 +131,7 @@
               <p>
                 <?php echo get_the_excerpt();?>
               </p>
-              <a href="#">Read More...</a>
+              <a href="<?php echo the_permalink()?>">Read More...</a>
             </div>
           </div>
 
@@ -161,6 +161,7 @@
       </div>
 
       <div class="container">
+     
         <div class="feature__img">
 
           <?php 
@@ -201,7 +202,7 @@
                 <p>
                   <?php echo get_the_excerpt(); ?>
                 </p>
-                <a href="#">Read More...</a>
+                <a href="<?php echo the_permalink()?>">Read More...</a>
               </div>
             </article>
 
@@ -216,59 +217,41 @@
             
 
           </div>
+
           <div class="feature__sidebar">
-            <div class="card__mini">
-              <small>Oct 21, 2022</small>
-              <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                sit.
-              </h4>
-              <a href="#">Read More ...</a>
-            </div>
-            <div class="card__mini">
-              <small>Oct 21, 2022</small>
-              <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                sit.
-              </h4>
-              <a href="#">Read More ...</a>
-            </div>
+          <?php
+              $args = array(
+                'post_type' => 'featurePost',
+                'post_per_page' => 6,
+                'offset'        => 3, 
+              );
+
+              $newQuery = new WP_Query($args)
+           ?>
+
+             <?php if ($newQuery->have_posts()) : while($newQuery->have_posts()) : $newQuery->the_post(); ?>
 
             <div class="card__mini">
               <small>Oct 21, 2022</small>
               <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                sit.
-              </h4>
-              <a href="#">Read More ...</a>
+                <?php the_title()?></h4>
+              <a href="<?php echo the_permalink()?>">Read More ...</a>
             </div>
 
-            <div class="card__mini">
-              <small>Oct 21, 2022</small>
-              <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                sit.
-              </h4>
-              <a href="#">Read More ...</a>
+              
+            <?php
+              
+            endwhile;
+           else:
+           echo"no available content";
+           endif;
+           wp_reset_postdata();
+           ?>
+           
+            
+
             </div>
 
-            <div class="card__mini">
-              <small>Oct 21, 2022</small>
-              <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                sit.
-              </h4>
-              <a href="#">Read More ...</a>
-            </div>
-
-            <div class="card__mini">
-              <small>Oct 21, 2022</small>
-              <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                sit.
-              </h4>
-              <a href="#">Read More ...</a>
-            </div>
           </div>
         </div>
       </div>

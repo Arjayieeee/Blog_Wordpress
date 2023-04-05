@@ -69,5 +69,7 @@ function theblog_custom_post(){
 
     register_post_type('featurePost', $featurePost_args);
 
+    // 
+
 }
     add_action('init', 'theblog_custom_post');

@@ -234,6 +234,7 @@
   .card__md__content a {
     opacity: 0.8;
     font-weight: bold;
+    color: #ffffff;
   }
   
   .feature {
@@ -307,6 +308,7 @@
     opacity: 0.8;
     font-weight: bold;
     font-size: 1.4rem;
+    color: #ffffff;
   }
   
   .card__mini {
@@ -322,6 +324,7 @@
     font-size: 1.4rem;
     opacity: 0.8;
     font-weight: bold;
+    color: white;
   }
   
   .footer {
@@ -546,4 +549,37 @@
   .fa-sun:before {
     content: "\f185";
   }
+  
+  /* The Content */
+
+  .theContent{
+      background-color: white;
+      padding: 4rem 0;
+  }
+  
+  .theContent .branding h1{
+    color: black;
+    font-size:4rem;
+  }
+  .theContent .branding img{
+    width: fit-content;
+    height:40rem;
+  }
+  .theContent .branding .date{
+    color: black;
+    font-size: 2rem;
+    margin-right:26.5rem;
+    padding: 1rem 0;
+    
+  }
+  .theContent .branding h4{
+    padding: 2rem 0;
+    max-width:70rem;
+    color: black;
+  }
+
+
+/* BANNER 2 */
+
+
   
